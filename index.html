@@ -1,143 +1,103 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="open.css" />
-  <style>
-    /* Additional CSS styles */
-    body {
-      background-color: #f6f6f6;
-      font-family: Arial, sans-serif;
-    }
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="open.css" />
+    <script>
+      function openUp() {
+        const $opentop = document.querySelector("#opentop");
+        const $top = document.querySelector("#top");
+        const $front = document.querySelector("#front");
+        const $back = document.querySelector("#back");
+        const $letter = document.querySelector("#letter");
+        const $button = document.querySelector("button");
 
-    .text {
-      text-align: center;
-      margin-top: 50px;
-    }
+        $opentop.beginElement();
+        $top.style.zIndex = 2;
 
-    #envelope {
-      position: relative;
-      margin: 0 auto;
-      width: 300px;
-      height: 300px;
-      cursor: pointer;
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
-    }
-
-    #envelope.opened {
-      transform: rotateY(180deg);
-    }
-
-    #back {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #4a274a;
-      transform: rotateY(180deg);
-      backface-visibility: hidden;
-      z-index: 1;
-    }
-
-    #front {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #2abad0;
-      backface-visibility: hidden;
-      z-index: 2;
-    }
-
-    #top {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      z-index: 3;
-    }
-
-    #letter {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: #ffffff;
-      opacity: 0;
-      transition: opacity 0.5s;
-    }
-
-    #button {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      background-color: #2abad0;
-      color: #ffffff;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.5s;
-    }
-
-    #envelope.opened #letter {
-      opacity: 1;
-    }
-
-    #envelope.opened #button {
-      opacity: 1;
-    }
-  </style>
-  <script>
-    function openUp() {
-      const envelope = document.querySelector("#envelope");
-      envelope.classList.add("opened");
-    }
-  </script>
-</head>
-<body>
-  <div class="text">
-    <h1>Hey! Listen, this is for you 💖....</h1>
-  </div>
-  <div id="envelope" onclick="openUp()">
-    <div id="back">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="300" width="300">
-        <polygon points="0,100 300,100 300,300 0,300" style="fill: #4a274a; stroke: none; stroke-width: 0" />
-      </svg>
+        $top.classList.add("animate");
+        $front.classList.add("animate");
+        $back.classList.add("animate");
+        $button.classList.add("animate");
+        $letter.classList.add("animate");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="text">
+      <h1>Hey ! Listen this is for you 💖....</h1>
     </div>
-    <div id="front">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="300" width="300">
-        <polygon points="0,100 150,200 300,100 300,300 0,300" style="fill: #2abad0; stroke: #ffffff; stroke-width: 3" />
-      </svg>
-    </div>
-    <div id="top">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="300" width="300">
-        <polygon points="0,100 150,200 300,100" style="fill: #2abad0; stroke: #ffffff; stroke-width: 2">
-          <animate id="opentop" attributeName="points" dur="0.5s" fill="freeze" begin="indefinite" from="0,100 150,200 300,100" to="0,100 150,0 300,100" />
-        </polygon>
-      </svg>
-    </div>
+    <div id="envelope">
+      <div id="back">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          height="300"
+          width="300"
+        >
+          <polygon
+            points="0,100 300,100 300,300 0,300"
+            style="fill: #4a274a; stroke: none; stroke-width: 0"
+          />
+        </svg>
+      </div>
+      <div id="front">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          height="300"
+          width="300"
+        >
+          <polygon
+            points="0,100 150,200 300,100 300,300 0,300"
+            style="fill: #2abad0; stroke: #ffffff; stroke-width: 3"
+          />
+        </svg>
+      </div>
+      <div id="top">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          height="300"
+          width="300"
+        >
+          <polygon
+            points="0,100 150,200 300,100"
+            style="fill: #2abad0; stroke: #ffffff; stroke-width: 2"
+          >
+            <animate
+              id="opentop"
+              attributeName="points"
+              dur="0.5s"
+              fill="freeze"
+              begin="indefinite"
+              from="0,100 150,200 300,100"
+              to="0,100 150,0 300,100"
+            />
+          </polygon>
+        </svg>
+      </div>
 
-    <div id="letter">
-      <h1>ForMy <span>Love</span></h1>
+      <div id="letter">
+        <h1>For My <span>Love</span></h1>
 
-      <!-- <img src="https://i.postimg.cc/5yZQnDpb/ukraine-7424066-640.webp" />-->
-      <p>
-        You are the person I have been dreaming of all my life, so allow me to express my intense love for you. You are the most precious thing in my life. You have fascinated my heart and seized my mind with your magnetic presence, and I keep dreaming of you. Your memories are an invaluable treasure of my life, locked inside my heart. The time spent with you was the most mesmerizing and delightful of my life. <br /><br />
-        I take this opportunity to ask for your consent to be my life partner. This letter is a token of my love for you. <br />
-        If you accept, <a href="new.html">Click Here</a>
-      </p>
+        <!-- <img src="https://i.postimg.cc/5yZQnDpb/ukraine-7424066-640.webp" />-->
+        <p>
+          You are the person I have been dreaming all my life , so allow me to
+          express my intense love for you. You are the most precious thing in my
+          life. You have fascinated my heart and seized my mind with your
+          magnetic presence and I keep dreaming of yourself Your memories are
+          invaluable treasure of my life, which are locked inside my heart. The
+          time spent with you was the most mesmerizing and delightful of my
+          life. <br />
+          <br />
+          I take this opportunity to ask for your consent if you want to be my
+          life partner.This letter is a token of my love for you. <br />
+          If You Accept
+          <a href="new.html">Click Here</a>
+        </p>
+      </div>
+      <button onclick="openUp()">Click Here</button>
     </div>
-    <button id="button">Click Here</button>
-  </div>
-</body>
+  </body>
 </html>
